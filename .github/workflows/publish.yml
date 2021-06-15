@@ -26,5 +26,5 @@ jobs:
         with:
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}/phpunit:${{ github.sha }}
-            ghcr.io/${{ github.repository }}/phpunit:${{ github.ref }}
+            ghcr.io/automattic/phpunit-docker/phpunit:${{ github.sha }}
+            ghcr.io/automattic/phpunit-docker/phpunit:${{ github.ref }}
