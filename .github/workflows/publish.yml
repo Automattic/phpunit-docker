@@ -27,3 +27,4 @@ jobs:
           push: true
           tags: |
             ghcr.io/automattic/phpunit-docker/phpunit:${{ github.sha }}
+            ghcr.io/automattic/phpunit-docker/phpunit:latest
