@@ -51,10 +51,7 @@ RUN apk --no-cache add \
     && composer require "phpunit/phpunit:^7.5" --prefer-source --no-interaction \
     && composer require "phpunit/php-invoker" --prefer-source --no-interaction \
     && ln -s /tmp/vendor/bin/phpunit /usr/local/bin/phpunit \
-    && sed -i 's/nn and/nn, Automattic and/g' /tmp/vendor/phpunit/phpunit/src/Runner/Version.php
-    # Enable X-Debug
-    # && sed -i 's/\;z/z/g' /etc/php7/conf.d/xdebug.ini \
-    # && php -m | grep -i xdebug
+    && sed -i 's/nn and/nn, Automattic and/g' /tmp/vendor/phpunit/phpunit/src/Runner/Version.php \
 
 ONBUILD RUN \
     { \
