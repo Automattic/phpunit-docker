@@ -1,6 +1,6 @@
 # PHPUnit Docker Container
 
-FROM alpine:3.13
+FROM alpine:3.14
 LABEL mantainer="Pau Argelaguet <pau.argelaguet@automattic.com>"
 
 ENV PEAR_PACKAGES foo
