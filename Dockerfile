@@ -12,7 +12,6 @@ RUN apk --no-cache add \
         ca-certificates \
         composer \
         curl \
-        git \
         php7 \
         php7-bcmath \
         php7-ctype \
@@ -23,6 +22,7 @@ RUN apk --no-cache add \
         php7-json \
         php7-mbstring \
         php7-mcrypt \
+        php7-memcached \
         php7-mysqli \
         php7-opcache \
         php7-openssl \
