@@ -8,10 +8,8 @@ ENV PEAR_PACKAGES foo
 WORKDIR /tmp
 
 RUN apk --no-cache add \
-        bash \
         ca-certificates \
         composer \
-        curl \
         php7 \
         php7-bcmath \
         php7-ctype \
@@ -42,7 +40,6 @@ RUN apk --no-cache add \
         php7-xmlwriter \
         php7-zip \
         php7-zlib \
-        unzip \
     && php -r "copy('https://pear.php.net/go-pear.phar', 'go-pear.phar');" \
     && php go-pear.phar \
     && php -r "unlink('go-pear.phar');" \
