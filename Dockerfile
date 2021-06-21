@@ -20,7 +20,6 @@ RUN apk --no-cache add \
         php7-json \
         php7-mbstring \
         php7-mcrypt \
-        php7-memcached \
         php7-mysqli \
         php7-opcache \
         php7-openssl \
@@ -29,6 +28,7 @@ RUN apk --no-cache add \
         php7-pdo_mysql \
         php7-pdo_pgsql \
         php7-pdo_sqlite \
+        php7-pecl-memcache \
         php7-phar \
         php7-session \
         php7-simplexml \
