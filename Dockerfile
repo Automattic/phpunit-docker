@@ -1,6 +1,6 @@
 # PHPUnit Docker Container
 
-FROM alpine:3.14
+FROM alpine:3.12
 LABEL mantainer="Pau Argelaguet <pau.argelaguet@automattic.com>"
 
 ENV PEAR_PACKAGES foo
@@ -10,6 +10,7 @@ WORKDIR /tmp
 RUN apk --no-cache add \
         bash \
         ca-certificates \
+        composer \
         curl \
         git \
         php7 \
@@ -45,13 +46,13 @@ RUN apk --no-cache add \
     && php -r "copy('https://pear.php.net/go-pear.phar', 'go-pear.phar');" \
     && php go-pear.phar \
     && php -r "unlink('go-pear.phar');" \
-    && php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
-    && php composer-setup.php --install-dir=/usr/bin --filename=composer \
-    && php -r "unlink('composer-setup.php');" \
     && composer require "phpunit/phpunit:^7.5" --prefer-source --no-interaction \
     && composer require "phpunit/php-invoker" --prefer-source --no-interaction \
     && ln -s /tmp/vendor/bin/phpunit /usr/local/bin/phpunit \
-    && sed -i 's/nn and/nn, Automattic and/g' /tmp/vendor/phpunit/phpunit/src/Runner/Version.php 
+    && sed -i 's/nn and/nn, Pau Argelaguet - Automattic (Docker) and/g' /tmp/vendor/phpunit/phpunit/src/Runner/Version.php \
+    # Enable X-Debug
+    && sed -i 's/\;z/z/g' /etc/php7/conf.d/xdebug.ini \
+    && php -m | grep -i xdebug
 
 ONBUILD RUN \
     { \
