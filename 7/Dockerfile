@@ -42,8 +42,9 @@ RUN apk --no-cache add \
         php7-zlib \
     && php -r "copy('https://pear.php.net/go-pear.phar', 'go-pear.phar');" \
     && php go-pear.phar \
-    && php -r "unlink('go-pear.phar');" \
-    && composer require "phpunit/phpunit:^7.5" --prefer-source --no-interaction \
+    && php -r "unlink('go-pear.phar');"
+
+RUN composer require "phpunit/phpunit:7.5.20" --prefer-source --no-interaction \
     && composer require "phpunit/php-invoker" --prefer-source --no-interaction \
     && ln -s /tmp/vendor/bin/phpunit /usr/local/bin/phpunit \
     && sed -i 's/nn and/nn, Pau Argelaguet - Automattic (Docker) and/g' /tmp/vendor/phpunit/phpunit/src/Runner/Version.php \
