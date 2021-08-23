@@ -46,6 +46,8 @@ RUN apk --no-cache add \
 
 RUN composer require "phpunit/phpunit:7.5.20" --prefer-source --no-interaction \
     && composer require "phpunit/php-invoker" --prefer-source --no-interaction \
+    # Polyfills for WP 5.9+
+    && composer require "yoast/phpunit-polyfills" --prefer-source --no-interaction \
     && ln -s /tmp/vendor/bin/phpunit /usr/local/bin/phpunit \
     && sed -i 's/nn and/nn, Pau Argelaguet - Automattic (Docker) and/g' /tmp/vendor/phpunit/phpunit/src/Runner/Version.php \
     # Enable X-Debug
