@@ -44,7 +44,7 @@ RUN apk --no-cache add \
     && php go-pear.phar \
     && php -r "unlink('go-pear.phar');"
 
-RUN composer require "phpunit/phpunit:9.5.6" --prefer-source --no-interaction \
+RUN composer require "phpunit/phpunit:9.5.10" --prefer-source --no-interaction \
     && composer require "phpunit/php-invoker" --prefer-source --no-interaction \
     && ln -s /tmp/vendor/bin/phpunit /usr/local/bin/phpunit \
     && sed -i 's/nn and/nn, Pau Argelaguet - Automattic (Docker) and/g' /tmp/vendor/phpunit/phpunit/src/Runner/Version.php \
